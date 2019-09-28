@@ -7,7 +7,11 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Ex_1_1_39 {
+    private String s = "hello world";
     public static void main(String[] args) {
+        Ex_1_1_39 ex = new Ex_1_1_39();
+        System.out.println(ex);
+
 //        int t = Integer.valueOf(args[0]);
         int t = 1000;
         int[] sizes = {1000, 10000, 100000, 1000000};

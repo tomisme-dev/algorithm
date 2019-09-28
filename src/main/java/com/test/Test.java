@@ -10,6 +10,14 @@ import java.io.FileOutputStream;
 import java.util.Random;
 
 public class Test {
+    public String name = "ccc";
+    {
+        name = "hello";
+    }
+
+    public Test() {
+        name = "gogo";
+    }
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("hello world!!");
 //        int i = 0;
