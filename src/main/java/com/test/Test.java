@@ -49,6 +49,8 @@ public class Test {
         System.out.println(2.0e-6*100000000.1);
         System.out.println(true && false || true && true);
         System.out.println(Math.abs(x));
+        Object obj = new Object();
+        obj = null;
     }
 
 
