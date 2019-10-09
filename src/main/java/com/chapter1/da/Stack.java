@@ -65,6 +65,17 @@ public class Stack<E> implements Iterable<E> {
         size++;
     }
 
+    public void reverse() {
+        Node pre = null;
+        while(last != null) {
+            Node next = last.prev;
+            last.prev = pre;
+            pre = last;
+            last = next;
+        }
+        last = pre;
+    }
+
     public E pop() {
         if(isEmpty()) {
             throw new NoSuchElementException();
@@ -92,11 +103,17 @@ public class Stack<E> implements Iterable<E> {
         qs.push("4");
         qs.push("5");
 
-        for(int i = 0, maxSize = qs.size()-1; i < maxSize ; i++) {
+        for(int i = 0, maxSize = 2; i < maxSize ; i++) {
             System.out.println(qs.pop());
         }
 
         System.out.println("===========");
+        for(String s: qs) {
+            System.out.println(s);
+        }
+
+        System.out.println("===========");
+        qs.reverse();
         for(String s: qs) {
             System.out.println(s);
         }
