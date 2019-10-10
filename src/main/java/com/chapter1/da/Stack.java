@@ -76,6 +76,10 @@ public class Stack<E> implements Iterable<E> {
         last = pre;
     }
 
+    public E peek() {
+        return last.val;
+    }
+
     public E pop() {
         if(isEmpty()) {
             throw new NoSuchElementException();
