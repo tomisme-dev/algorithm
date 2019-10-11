@@ -3,7 +3,7 @@ package com.chapter1.da;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Queue<E> implements Iterable<E> {
+public class Queue<E> implements IQueue<E> {
     private Node first = null;
     private Node last = null;
 
@@ -41,7 +41,7 @@ public class Queue<E> implements Iterable<E> {
     }
 
 
-
+    @Override
     public void enqueue(E e) {
         Node<E> node = new Node(e);
         if(first == null) {
@@ -54,10 +54,12 @@ public class Queue<E> implements Iterable<E> {
         size++;
     }
 
+    @Override
     public boolean isEmpty() {
         return size < 1;
     }
 
+    @Override
     public E dequeue() {
         if(isEmpty()) {
             throw new NoSuchElementException();
@@ -68,6 +70,7 @@ public class Queue<E> implements Iterable<E> {
         return result.e;
     }
 
+    @Override
     public int size() {
         return size;
     }

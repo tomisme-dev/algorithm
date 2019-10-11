@@ -1,5 +1,6 @@
 package com.chapter1.exercise;
 
+import com.chapter1.da.Node;
 import edu.princeton.cs.algs4.BinarySearch;
 import edu.princeton.cs.algs4.StdRandom;
 
@@ -50,4 +51,5 @@ public class Ex_1_1_39 {
         }
         return sameCount;
     }
+
 }
