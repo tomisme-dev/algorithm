@@ -107,14 +107,10 @@ public class Ex_1_3_20 {
             return root;
         }
 
+        Node<E> next = root.next;
         Node<E> reverseRoot = reverse(root.next);
+        next.next = root;
         root.next = null;
-        for(Node<E> n = reverseRoot; n != null; n = n.next) {
-            if(n.next == null) {
-                n.next = root;
-                break;
-            }
-        }
         return reverseRoot;
     }
 }
