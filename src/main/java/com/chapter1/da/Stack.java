@@ -1,5 +1,6 @@
 package com.chapter1.da;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -7,6 +8,7 @@ public class Stack<E> implements Iterable<E> {
 
     private Node<E> last;
     private int size;
+    private volatile int modCount = 0;
 
     public Stack() {
         last = null;
@@ -20,7 +22,7 @@ public class Stack<E> implements Iterable<E> {
 
     private class StackIterator implements Iterator {
         private Node<E> cur = last;
-
+        private volatile int expectedModifyCount = modCount;
 
         @Override
         public boolean hasNext() {
@@ -29,12 +31,17 @@ public class Stack<E> implements Iterable<E> {
 
         @Override
         public E next() {
+            if(expectedModifyCount != modCount) {
+                throw new ConcurrentModificationException();
+            }
+
             if(!hasNext()) {
                 throw new NoSuchElementException();
             }
 
             E result = cur.val;
             cur = cur.prev;
+
             return result;
         }
 
@@ -62,6 +69,7 @@ public class Stack<E> implements Iterable<E> {
             last = n;
         }
 
+        modCount++;
         size++;
     }
 
@@ -81,13 +89,10 @@ public class Stack<E> implements Iterable<E> {
     }
 
     public E pop() {
-        if(isEmpty()) {
-            throw new NoSuchElementException();
-        }
-
         E result = last.val;
         last = last.prev;
         size--;
+        modCount++;
         return result;
     }
 
@@ -120,7 +125,10 @@ public class Stack<E> implements Iterable<E> {
         qs.reverse();
         for(String s: qs) {
             System.out.println(s);
+            qs.push("b");
         }
+
+        qs.push("b");
 
 
     }

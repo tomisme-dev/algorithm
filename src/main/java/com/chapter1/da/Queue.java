@@ -9,6 +9,22 @@ public class Queue<E> implements IQueue<E> {
 
     private int size = 0;
 
+    public Queue() {
+
+    }
+
+    public Queue(Queue<E> queue) {
+        int i = 0;
+        for(E e: queue) {
+            Node<E> tmp = new Node<>(e);
+            if(i == 0) {
+                first = tmp;
+                last = tmp;
+            }
+            last.next = tmp;
+            last = tmp;
+        }
+    }
 
     @Override
     public Iterator<E> iterator() {
