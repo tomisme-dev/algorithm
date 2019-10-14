@@ -5,12 +5,12 @@ public class ThreeSum extends TimeCalc{
         super(ints);
     }
 
+    public ThreeSum() {
+    }
+
     public static void main(String[] args) {
-        int l = 5;
-        int[] sizes = new int[l];
-        for(int i = 1; i <= l; i++) {
-            sizes[i-1] = 1000*i;
-        }
+        int[] sizes = new int[] {1000, 2000, 4000};
+
         ThreeSum threeSum = new ThreeSum(sizes);
         threeSum.start();
         threeSum.drawGraph();
@@ -22,6 +22,13 @@ public class ThreeSum extends TimeCalc{
         int sum = 0;
 
         long start = System.currentTimeMillis();
+        count(ints);
+        return System.currentTimeMillis() - start;
+    }
+
+    public int count(int[] ints) {
+        int size = ints.length;
+        int sum = 0;
         for(int i = 0; i < size; i++) {
             for(int j = i+1; j < size; j++) {
                 for(int k = j+1; k < size; k++) {
@@ -30,7 +37,7 @@ public class ThreeSum extends TimeCalc{
             }
         }
 
-        return System.currentTimeMillis() - start;
+        return sum;
     }
 
 }

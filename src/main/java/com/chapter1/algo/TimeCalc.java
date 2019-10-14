@@ -33,6 +33,7 @@ public abstract class TimeCalc {
     }
 
     public void drawGraph() {
+        System.out.println(plan);
         Integer maxX = plan.keySet().stream().max((a, b) -> a-b).get();
         Long maxY = plan.values().stream().max((a, b) -> Long.compare(a, b)).get();
         StdDraw.setXscale(0, maxX);
