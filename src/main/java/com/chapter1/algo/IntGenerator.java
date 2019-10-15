@@ -10,7 +10,7 @@ public class IntGenerator {
         }
         int[] result = new int[size];
         for(int i = 0; i < size; i++) {
-            result[i] = random.nextInt(100000);
+            result[i] = random.nextInt(2000001) - 1000000;
         }
         return result;
     }
