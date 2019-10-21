@@ -2,19 +2,15 @@ package com.chapter1.algo;
 
 import java.util.Random;
 
-public class IntGenerator {
+public class DoubleGenerator {
     private static Random random = new Random();
-    public static int[] generate(int size) {
-        return generate(size, -1000000, 1000000);
-    }
-
-    public static int[] generate(int size, int min, int max) {
+    public static double[] generate(int size, double min, double max) {
         if(size <= 0) {
             throw new IllegalArgumentException("size must greater than 0");
         }
-        int[] result = new int[size];
+        double[] result = new double[size];
         for(int i = 0; i < size; i++) {
-            result[i] = random.nextInt(max - min + 1) + min;
+            result[i] = random.nextDouble() * (max - min) + min;
         }
         return result;
     }
