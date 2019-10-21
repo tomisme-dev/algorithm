@@ -41,7 +41,7 @@ public class ThreeSum extends TimeCalc{
     }
 
     @Override
-    public Long task(int size) {
+    public double task(int size) {
         int[] ints = IntGenerator.generate(size);
         int sum = 0;
 
