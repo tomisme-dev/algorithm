@@ -13,7 +13,7 @@ import java.util.List;
 public class Ex_1_4_12 extends TimeCalc {
 
     @Override
-    public Long task(int size) {
+    public double task(int size) {
         int[] inputs1 = IntGenerator.generate(size);
         int[] inputs2 = IntGenerator.generate(size);
         Arrays.sort(inputs1);

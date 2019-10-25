@@ -33,7 +33,7 @@ public abstract class TimeCalc {
     public abstract double task(int size);
 
     public void start() {
-        System.out.printf("%14s %14s %14\n", "size", "time", "half");
+        System.out.printf("%14s %14s %14s\n", "size", "time", "half");
         double preTimes = 1;
         for(Integer size: plan.keySet()) {
             double times = task(size);
