@@ -118,6 +118,13 @@ public class BitonicSearch extends TimeCalc {
     public static void main(String[] args) {
         BitonicSearch bitonicSearch = new BitonicSearch();
 //        bitonicSearch.task(20);
-        bitonicSearch.start();
+//        bitonicSearch.start();
+        int n = 100;
+        System.out.println(Math.log(n));
+        System.out.println(Math.log(n)/Math.log(2));
+        for(int i = 1; i < n; i++) {
+            double y = i * Math.pow(n, 1.0/i);
+            System.out.println("x=" + i + ", y=" + y);
+        }
     }
 }

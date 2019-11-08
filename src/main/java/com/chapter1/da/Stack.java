@@ -4,7 +4,7 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Stack<E> implements Iterable<E> {
+public class Stack<E> implements IStack<E>, Iterable<E> {
 
     private Node<E> last;
     private int size;
@@ -96,7 +96,7 @@ public class Stack<E> implements Iterable<E> {
         return result;
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return size < 1;
     }
 
